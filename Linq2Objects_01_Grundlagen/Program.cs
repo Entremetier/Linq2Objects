@@ -46,14 +46,6 @@ using System.Threading.Tasks;
  * formuliert werden (siehe auch Projekt LINQ2Objects_02_AggregationUndElemente).
  */
 
-
-
-// Der Abfragevariablen wird der Abfrageausdruck (Query Expression) zugewiesen.
-// Eine Abfrage beginnt immer mit dem Schlüsselwort from.
-// Die from-Klausel definiert eine Bereichsvariable n (Range Variable), der die
-// einzelnen Elemente der Datenquelle nums (Auflistung) zugewiesen werden.
-// Der Typ der Bereichsvariablen entspricht dem Typ der Elemente der Datenquelle.
-
 namespace Linq2Objects_01_Grundlagen
 {
     class Program
@@ -71,17 +63,60 @@ namespace Linq2Objects_01_Grundlagen
                              where n > 0
                              select n;
 
+            // Der Abfragevariablen wird der Abfrageausdruck (Query Expression) zugewiesen.
+            // Eine Abfrage beginnt immer mit dem Schlüsselwort from.
+            // Die from-Klausel definiert eine Bereichsvariable n (Range Variable), der die
+            // einzelnen Elemente der Datenquelle nums (Auflistung) zugewiesen werden.
+            // Der Typ der Bereichsvariablen entspricht dem Typ der Elemente der Datenquelle.
+
             Console.WriteLine("Positive Werte in nums:");
+
+            //Die Query mit einer foreach ausführen und die Abfrageergebnisse anzeigen.
             foreach (int item in positivNum)
             {
-                Console.WriteLine(item);
+                Console.Write(item + " ");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             //ODER
 
             //positivNum.ToList()
             //    .ForEach(x => Console.WriteLine(x));
+
+
+            //Die Query ein weiteres mal ausführen
+            //----------------------------------------------
+
+            nums[1] = 128; //Datenquelle ändern
+            Console.WriteLine("nums[1] wurde auf -128 geändert!");
+            Console.WriteLine();
+
+            //Die Query ein weiters mal ausführen
+            foreach (var item in positivNum)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+
+
+            //Methodensyntax
+            //--------------------------------------------
+
+            //Eine Query die nur die negativen Werte zurückliefert, in Abfragesyntax.
+            var negativNumA = from n in nums
+                              where n < 0
+                              select n;
+
+
+            Console.WriteLine("Negative Werte ausgeben:");
+            //Eine Query die nur die negativen Werte zurückliefert, in Methodensyntax.
+
+            var negativNumB = nums.Where(n => n < 0).Select(n => n);
+
+            //Die Sequenz, die von Where() zurückgegeben wird, enthält bereits das Ergebnis. Man hätte auch 
+            //"var negativNumB = nums.Where(n => n < 0);" schreiben können.
+
+
 
 
             Console.ReadKey();
