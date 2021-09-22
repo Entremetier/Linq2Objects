@@ -56,6 +56,12 @@ namespace Linq2Objects_01_Grundlagen
             //------------------------------
 
             int[] nums = { 1, 2, 3, 4, -5, 78, 99, -11 };
+            Console.WriteLine("Alle Werte in der Liste:");
+            foreach (var item in nums)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\n");
 
             //Eine Query die nur die positiven Werte zurückliefert.
             //positivNum ist die Abfragevariable (Query Variable).
@@ -96,7 +102,7 @@ namespace Linq2Objects_01_Grundlagen
             {
                 Console.Write(item + " ");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
 
             //Methodensyntax
@@ -110,13 +116,50 @@ namespace Linq2Objects_01_Grundlagen
 
             Console.WriteLine("Negative Werte ausgeben:");
             //Eine Query die nur die negativen Werte zurückliefert, in Methodensyntax.
+            //Im Methodensyntax kann das Select-Statement weggelassen wird
+            var negativNumB = nums.Where(n => n < 0)/*.Select(n => n)*/;
 
-            var negativNumB = nums.Where(n => n < 0).Select(n => n);
+            foreach (var item in negativNumB)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\n");
 
             //Die Sequenz, die von Where() zurückgegeben wird, enthält bereits das Ergebnis. Man hätte auch 
             //"var negativNumB = nums.Where(n => n < 0);" schreiben können.
 
 
+
+            //Beispiel: LINQ-Abfrage in Abfrage- und Methodensyntax die die Quadrate der ungeraden Zahlen in nums liefert
+            //-----------------------------------------------------------------------------------------------------
+
+            //Abfragesyntax
+
+            var queryA = from n in nums
+                         where n % 2 != 0   // ACHTUNG BEI NEGATIVEN WERTEN (n % 2 == 1 funktioniert nicht)
+                         select n * n;
+
+            Console.WriteLine("Quadrate der ungeraden Zahlen in nums, Abfragesyntax");
+            foreach (var item in queryA)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\n");
+
+
+            //Methodensyntax
+
+            //Math.Abs gibt die Absolute Zahl zurück
+            var queryM = nums
+                .Where(n => Math.Abs(n % 2) == 1)
+                .Select(n => n * n);
+
+            Console.WriteLine("Quadrate der ungeraden Zahlen in nums, Methodensyntax");
+            foreach (var item in queryM)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine("\n");
 
 
             Console.ReadKey();
