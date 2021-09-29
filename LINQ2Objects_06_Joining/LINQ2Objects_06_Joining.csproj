@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BC835C82-4952-4E05-9FA6-F531829ECBA1}</ProjectGuid>
+    <ProjectGuid>{1CF9CEA7-6967-468A-B786-B765EBEC599F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LINQ2Objects_04_Ordering</RootNamespace>
-    <AssemblyName>LINQ2Objects_04_Ordering</AssemblyName>
+    <RootNamespace>LINQ2Objects_06_Joining</RootNamespace>
+    <AssemblyName>LINQ2Objects_06_Joining</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Auto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
