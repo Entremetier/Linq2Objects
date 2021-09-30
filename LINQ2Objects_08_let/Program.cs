@@ -16,17 +16,25 @@ namespace LINQ2Objects_08_let
     {
         static void Main(string[] args)
         {
-            //            List<Student> studenten = new List<Student>
-            //{
-            //   new Student("Klaus", "Hafner", 131, new List<int> {97, 92, 81, 60}),
-            //   new Student("Suzie", "Heger", 132, new List<int> {75, 84, 91, 39}),
-            //   new Student("Jakob", "Nachbargauer", 133, new List<int> {38, 54, 65, 42}),
-            //   new Student("Joseph", "Dreier", 134, new List<int> {97, 89, 85, 82}),
-            //   new Student("Sarah", "Hellwagner", 135, new List<int> {35, 72, 91, 70}),
-            //   new Student("Gerlinde", "Meisterhofer", 136, new List<int> {68, 79, 88, 92}),
-            //   new Student("Günther", "Lagler", 137, new List<int> {99, 81, 84, 77}),
-            //   new Student("Peter", "Wanisch", 138, new List<int> {96, 94, 83, 93})
-            //};
+            List<Student> studenten = new List<Student>
+            {
+               new Student("Klaus", "Hafner", 131, new List<int> {97, 92, 81, 60}),
+               new Student("Suzie", "Heger", 132, new List<int> {75, 84, 91, 39}),
+               new Student("Jakob", "Nachbargauer", 133, new List<int> {38, 54, 65, 42}),
+               new Student("Joseph", "Dreier", 134, new List<int> {97, 89, 85, 82}),
+               new Student("Sarah", "Hellwagner", 135, new List<int> {35, 72, 91, 70}),
+               new Student("Gerlinde", "Meisterhofer", 136, new List<int> {68, 79, 88, 92}),
+               new Student("Günther", "Lagler", 137, new List<int> {99, 81, 84, 77}),
+               new Student("Peter", "Wanisch", 138, new List<int> {96, 94, 83, 93})
+            };
+
+
+            // Alle Studenten ermitteln deren Gesamtpunkteanzahl > 300 ist
+            // -----------------------------------------------------------
+
+            //var q1 = from s in studenten
+
+
 
 
 
@@ -59,6 +67,16 @@ namespace LINQ2Objects_08_let
             // 100 - 199:
             //     Jakob Nachbargauer        199 Punkte
             // -----------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+            Console.ReadKey();
         }
     }
 }
